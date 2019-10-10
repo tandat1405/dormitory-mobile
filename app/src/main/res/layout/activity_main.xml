@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity"
+    android:background="@color/colorPrimary">
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_above="@+id/ll_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@drawable/app_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+        <TextView
+            android:fontFamily="@font/be_vietnam_bold"
+            android:textSize="26sp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dormitory Management"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_login_border"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="70dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="70dp">
+
+        <com.google.android.gms.common.SignInButton
+            android:layout_gravity="center"
+            android:id="@+id/sign_in_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
