@@ -9,8 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.ProfileActivity"></activity>
-        <activity android:name=".Activity.HomeActivity" />
+        <activity
+            android:name=".Activity.CreateIssueActivity"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".Activity.PaymentActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activity.CancelContractActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activity.RenewContractActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activity.TransferRoomActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activity.BookRoomActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activity.ProfileActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activity.HomeActivity"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

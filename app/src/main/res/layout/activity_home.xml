@@ -8,24 +8,25 @@
     android:orientation="vertical"
     android:weightSum="10">
     <RelativeLayout
+        android:background="@color/colorPrimaryDark"
         android:padding="5dp"
-        android:background="@color/colorPrimary"
         android:layout_weight="0.8"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginLeft="5dp"
             android:onClick="clickToViewProfile"
             android:layout_centerVertical="true"
             android:id="@+id/civ_avatar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/student">
         </de.hdodenhof.circleimageview.CircleImageView>
         <TextView
             android:onClick="clickToViewProfile"
             android:fontFamily="@font/be_vietnam_regular"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:text="Nguyễn Tấn Đạt"
@@ -33,17 +34,247 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <ImageView
+            android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_notifications_none_128dp"
             android:layout_alignParentRight="true"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
+            android:layout_width="35dp"
+            android:layout_height="35dp"/>
     </RelativeLayout>
+    <View
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+
+    </View>
+    <!--<GridView
+        android:id="@+id/grid_home"
+        android:numColumns="2"
+        android:layout_weight="9.2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+        -->
     <ScrollView
         android:layout_weight="9.2"
         android:layout_width="match_parent"
         android:layout_height="0dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:weightSum="10"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <LinearLayout
+                    android:background="@drawable/bg_menu_item"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical"
+                    android:weightSum="10"
+                    android:gravity="center"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/news"
+                        android:layout_weight="5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"/>
+                    <TextView
+                        android:textSize="16sp"
+                        android:fontFamily="@font/be_vietnam_bold"
+                        android:textColor="@color/black"
+                        android:text="Tin tức"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:onClick="clickToBookRoom"
+                    android:background="@drawable/bg_menu_item"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical"
+                    android:weightSum="10"
+                    android:gravity="center"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/register"
+                        android:layout_weight="5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"/>
+                    <TextView
+                        android:textSize="16sp"
+                        android:fontFamily="@font/be_vietnam_bold"
+                        android:textColor="@color/black"
+                        android:text="Đăng kí phòng"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
 
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="10"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <LinearLayout
+                    android:onClick="clickToTransferRoom"
+                    android:background="@drawable/bg_menu_item"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical"
+                    android:weightSum="10"
+                    android:gravity="center"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/transfer"
+                        android:layout_weight="5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"/>
+                    <TextView
+                        android:textSize="16sp"
+                        android:fontFamily="@font/be_vietnam_bold"
+                        android:textColor="@color/black"
+                        android:text="Chuyển phòng"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:onClick="clickToRenewContract"
+                    android:background="@drawable/bg_menu_item"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical"
+                    android:weightSum="10"
+                    android:gravity="center"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/refresh"
+                        android:layout_weight="5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"/>
+                    <TextView
+                        android:textSize="16sp"
+                        android:fontFamily="@font/be_vietnam_bold"
+                        android:textColor="@color/black"
+                        android:text="Gia hạn hợp đồng"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="10"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <LinearLayout
+                    android:onClick="clickToCancelContract"
+                    android:background="@drawable/bg_menu_item"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical"
+                    android:weightSum="10"
+                    android:gravity="center"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/cancel"
+                        android:layout_weight="5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"/>
+                    <TextView
+                        android:textSize="16sp"
+                        android:fontFamily="@font/be_vietnam_bold"
+                        android:textColor="@color/black"
+                        android:text="Hủy hợp đồng"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:background="@drawable/bg_menu_item"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical"
+                    android:weightSum="10"
+                    android:gravity="center"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/bill"
+                        android:layout_weight="5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"/>
+                    <TextView
+                        android:textSize="16sp"
+                        android:fontFamily="@font/be_vietnam_bold"
+                        android:textColor="@color/black"
+                        android:text="Thánh toán phí"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="10"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <LinearLayout
+                    android:onClick="clickToCreateIssue"
+                    android:background="@drawable/bg_menu_item"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical"
+                    android:weightSum="10"
+                    android:gravity="center"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/warning"
+                        android:layout_weight="5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"/>
+                    <TextView
+                        android:textSize="16sp"
+                        android:fontFamily="@font/be_vietnam_bold"
+                        android:textColor="@color/black"
+                        android:text="Báo cáo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="invisible"
+                    android:background="@drawable/bg_menu_item"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical"
+                    android:weightSum="10"
+                    android:gravity="center"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/warning"
+                        android:layout_weight="5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"/>
+                    <TextView
+                        android:textSize="16sp"
+                        android:fontFamily="@font/be_vietnam_bold"
+                        android:textColor="@color/black"
+                        android:text="Báo cáo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 </LinearLayout>
