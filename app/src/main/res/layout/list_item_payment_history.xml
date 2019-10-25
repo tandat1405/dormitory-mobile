@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="9"
+    android:padding="10dp"
+    android:background="@drawable/bg_input">
+    <TextView
+        android:id="@+id/list_item_payment_type"
+        android:textColor="@color/black"
+        android:fontFamily="@font/be_vietnam_bold"
+        android:gravity="center"
+        android:text="Tiền phòng"
+        android:layout_weight="3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <TextView
+        android:id="@+id/list_item_payment_price"
+        android:textColor="@color/black"
+        android:fontFamily="@font/be_vietnam_regular"
+        android:gravity="center"
+        android:text="350.000 VND"
+        android:layout_weight="3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <TextView
+        android:id="@+id/list_item_payment_date"
+        android:textColor="@color/black"
+        android:fontFamily="@font/be_vietnam_regular"
+        android:gravity="center"
+        android:text="1/10/2019"
+        android:layout_weight="3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+</LinearLayout>

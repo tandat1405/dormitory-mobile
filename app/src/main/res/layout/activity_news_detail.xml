@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.NewsDetailActivity"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/white">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_news_detail_title"
+                android:textSize="18sp"
+                android:fontFamily="@font/be_vietnam_bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="Mở đăng ký chuyển phòng từ ngày 11/11/2019 - 22/12/2019"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tv_news_detail_author"
+                android:layout_gravity="right"
+                android:text="Đăng bởi: huylm 20/10/2019 12:20:13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:id="@+id/iv_news_detail_image"
+                android:src="@drawable/transfer_sample"
+                android:adjustViewBounds="true"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"/>
+            <TextView
+                android:id="@+id/tv_news_detail_content"
+                android:textColor="@color/black"
+                android:text="Dựa vào ..."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

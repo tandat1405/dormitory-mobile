@@ -24,7 +24,7 @@ public class CancelContractActivity extends AppCompatActivity {
         getSupportActionBar().setElevation(0);
         //declare
         spn_CancelFromDate = findViewById(R.id.spn_cancel_from);
-        ArrayAdapter spnAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,spnArr);
+        ArrayAdapter spnAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,spnArr);
         spn_CancelFromDate.setAdapter(spnAdapter);
 
     }

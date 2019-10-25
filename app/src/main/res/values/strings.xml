@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">Dormitory Management</string>
+    <string name="app_name">Dormitory</string>
     <string name="err_lost_internet">Có lỗi xãy ra, xin vui lòng kiểm tra kết nối mạng.</string>
+    <string name="err_try_again">Có lỗi xãy ra, xin vui lòng thử lại.</string>
 </resources>

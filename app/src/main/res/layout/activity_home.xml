@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:weightSum="10">
     <RelativeLayout
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/white"
         android:padding="5dp"
         android:layout_weight="0.8"
         android:layout_width="match_parent"
@@ -24,16 +24,17 @@
             android:src="@drawable/student">
         </de.hdodenhof.circleimageview.CircleImageView>
         <TextView
+            android:id="@+id/tv_home_name"
             android:onClick="clickToViewProfile"
             android:fontFamily="@font/be_vietnam_regular"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:layout_centerVertical="true"
-            android:text="Nguyễn Tấn Đạt"
             android:layout_toRightOf="@+id/civ_avatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <ImageView
+            android:onClick="clickToViewNotification"
             android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_notifications_none_128dp"
@@ -42,7 +43,7 @@
             android:layout_height="35dp"/>
     </RelativeLayout>
     <View
-        android:background="@color/colorAccent"
+        android:background="@android:color/darker_gray"
         android:layout_width="match_parent"
         android:layout_height="1dp">
 
@@ -68,8 +69,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
                 <LinearLayout
+                    android:onClick="clickToViewNews"
                     android:background="@drawable/bg_menu_item"
-                    android:layout_margin="20dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical"
                     android:weightSum="10"
                     android:gravity="center"
@@ -78,7 +80,7 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/news"
-                        android:layout_weight="5"
+                        android:layout_weight="4"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"/>
                     <TextView
@@ -92,7 +94,7 @@
                 <LinearLayout
                     android:onClick="clickToBookRoom"
                     android:background="@drawable/bg_menu_item"
-                    android:layout_margin="20dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical"
                     android:weightSum="10"
                     android:gravity="center"
@@ -101,7 +103,7 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/register"
-                        android:layout_weight="5"
+                        android:layout_weight="4"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"/>
                     <TextView
@@ -122,7 +124,7 @@
                 <LinearLayout
                     android:onClick="clickToTransferRoom"
                     android:background="@drawable/bg_menu_item"
-                    android:layout_margin="20dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical"
                     android:weightSum="10"
                     android:gravity="center"
@@ -131,7 +133,7 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/transfer"
-                        android:layout_weight="5"
+                        android:layout_weight="4"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"/>
                     <TextView
@@ -145,7 +147,7 @@
                 <LinearLayout
                     android:onClick="clickToRenewContract"
                     android:background="@drawable/bg_menu_item"
-                    android:layout_margin="20dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical"
                     android:weightSum="10"
                     android:gravity="center"
@@ -154,7 +156,7 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/refresh"
-                        android:layout_weight="5"
+                        android:layout_weight="4"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"/>
                     <TextView
@@ -175,7 +177,7 @@
                 <LinearLayout
                     android:onClick="clickToCancelContract"
                     android:background="@drawable/bg_menu_item"
-                    android:layout_margin="20dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical"
                     android:weightSum="10"
                     android:gravity="center"
@@ -184,7 +186,7 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/cancel"
-                        android:layout_weight="5"
+                        android:layout_weight="4"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"/>
                     <TextView
@@ -196,8 +198,9 @@
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:onClick="clickToPayment"
                     android:background="@drawable/bg_menu_item"
-                    android:layout_margin="20dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical"
                     android:weightSum="10"
                     android:gravity="center"
@@ -206,7 +209,7 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/bill"
-                        android:layout_weight="5"
+                        android:layout_weight="4"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"/>
                     <TextView
@@ -228,7 +231,7 @@
                 <LinearLayout
                     android:onClick="clickToCreateIssue"
                     android:background="@drawable/bg_menu_item"
-                    android:layout_margin="20dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical"
                     android:weightSum="10"
                     android:gravity="center"
@@ -237,7 +240,7 @@
                     android:layout_height="match_parent">
                     <ImageView
                         android:src="@drawable/warning"
-                        android:layout_weight="5"
+                        android:layout_weight="4"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"/>
                     <TextView
@@ -249,9 +252,8 @@
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:visibility="invisible"
                     android:background="@drawable/bg_menu_item"
-                    android:layout_margin="20dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical"
                     android:weightSum="10"
                     android:gravity="center"
@@ -259,15 +261,15 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
                     <ImageView
-                        android:src="@drawable/warning"
-                        android:layout_weight="5"
+                        android:src="@drawable/history"
+                        android:layout_weight="4"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"/>
                     <TextView
                         android:textSize="16sp"
                         android:fontFamily="@font/be_vietnam_bold"
                         android:textColor="@color/black"
-                        android:text="Báo cáo"
+                        android:text="Lịch sử yêu cầu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>

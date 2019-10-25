@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_button_cancel">
+    <TextView
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryDark"
+        android:padding="10dp"
+        android:fontFamily="@font/be_vietnam_bold"
+        android:gravity="center"
+        android:text="Lỗi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:text="Admin không có quyền truy cập ứng dụng này, xin vui lòng dùng web application."
+        android:id="@+id/tv_message"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <View
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <Button
+        android:id="@+id/btn_OK"
+        android:textColor="@color/white"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_button"
+        android:text="OK"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

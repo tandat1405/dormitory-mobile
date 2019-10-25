@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="10"
+    android:padding="10dp"
+    android:background="@drawable/bg_input">
+    <ImageView
+        android:src="@drawable/payment_noti"
+        android:padding="5dp"
+        android:id="@+id/list_item_notification_image"
+        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="70dp"/>
+    <RelativeLayout
+        android:layout_weight="8"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/list_item_notification_time"
+            android:textColor="@color/black"
+            android:fontFamily="@font/be_vietnam_bold"
+            android:text="Bạn cần thanh toán điện nước trước 5/10/2019"
+            android:id="@+id/list_item_notification_content"
+            android:maxLines="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="15:52:41 1/10/2019"
+            android:id="@+id/list_item_notification_time"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="@drawable/bg_input">
+    <TextView
+        android:id="@+id/list_item_news_title"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:text="Thông báo mở nhận sinh viên đăng kí online"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/list_item_news_content"
+        android:maxLines="2"
+        android:text="Nhầm đáp ứng nhu cầu đăng ký vào ký túc xác của sinh viện,
+        ban quản lý ký túc xá quyết định mở nhận sinh viên đăng ký online từ ứng dụng di động."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_gravity="right"
+            android:textColor="@color/colorPrimary"
+            android:text="Xem thêm >>>"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -19,17 +19,21 @@
                 android:layout_height="wrap_content"
                 android:text="Loại phòng:"/>
             <RadioGroup
+                android:id="@+id/rg_booking_room_type"
                 android:padding="5dp"
                 android:background="@drawable/bg_input"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RadioButton
+                    android:id="@+id/rb_booking_standard_type"
+                    android:checked="true"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                     android:text="Phòng tiêu chuẩn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <RadioButton
+                    android:id="@+id/rb_booking_service_type"
                     android:layout_marginLeft="10dp"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                     android:text="Phòng dịch vụ"
@@ -43,23 +47,28 @@
                 android:layout_height="wrap_content"
                 android:text="Số tháng muốn ở:"/>
             <RadioGroup
+                android:id="@+id/rg_booking_month"
                 android:padding="5dp"
                 android:background="@drawable/bg_input"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RadioButton
+                    android:id="@+id/rb_booking_4"
+                    android:checked="true"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                     android:text="4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <RadioButton
+                    android:id="@+id/rb_booking_8"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                     android:layout_marginLeft="20dp"
                     android:text="8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <RadioButton
+                    android:id="@+id/rb_booking_12"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                     android:layout_marginLeft="20dp"
                     android:text="12"
@@ -78,10 +87,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
+                    android:id="@+id/iv_booking_identity_adding"
+                    android:onClick="clickToChooseIdentityImage"
                     android:src="@drawable/addimage"
                     android:layout_width="70dp"
                     android:layout_height="70dp"/>
                 <ImageView
+                    android:id="@+id/iv_booking_identity"
+                    android:onClick="clickToChooseIdentityImage"
                     android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"/>
@@ -99,10 +112,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
+                    android:id="@+id/iv_booking_student_identity_adding"
+                    android:onClick="clickToChooseStudentIdentity"
                     android:src="@drawable/addimage"
                     android:layout_width="70dp"
                     android:layout_height="70dp"/>
                 <ImageView
+                    android:id="@+id/iv_booking_student_identity"
+                    android:onClick="clickToChooseStudentIdentity"
                     android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"/>
@@ -144,6 +161,8 @@
 
             </RelativeLayout>
             <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/ll_priority"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -153,16 +172,21 @@
                     android:layout_height="wrap_content"
                     android:text="Ảnh xác minh đối tượng ưu tiên:"/>
                 <LinearLayout
+
                     android:padding="5dp"
                     android:background="@drawable/bg_input"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageView
+                        android:id="@+id/iv_booking_priority_adding"
+                        android:onClick="clickToChoosePriorityImage"
                         android:src="@drawable/addimage"
                         android:layout_width="70dp"
                         android:layout_height="70dp"/>
                     <ImageView
+                        android:id="@+id/iv_booking_priority"
+                        android:onClick="clickToChoosePriorityImage"
                         android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"/>
@@ -173,6 +197,7 @@
     </ScrollView>
 
     <Button
+        android:onClick="clickToCreateRequestRoomBooking"
         android:id="@+id/btn_book_room"
         android:fontFamily="@font/be_vietnam_bold"
         android:textColor="#ffffff"

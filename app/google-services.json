@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "31613603380",
+    "firebase_url": "https://dormitorymanagement-capstone.firebaseio.com",
+    "project_id": "dormitorymanagement-capstone",
+    "storage_bucket": "dormitorymanagement-capstone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31613603380:android:65dbb9d3a4b145aaea8461",
+        "android_client_info": {
+          "package_name": "com.datnt.dormitorymanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31613603380-5bl4dcv460pu27ot2j2iipc8v7epj8ju.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.datnt.dormitorymanagement",
+            "certificate_hash": "d63053c49dd4accf1e976eabfc8df83295ad448f"
+          }
+        },
+        {
+          "client_id": "31613603380-bj1i5r84s9bq21b24hc2kj34mcor2hih.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDplrKpMJIqMVqKd51VRIBqI1om0jvWfG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31613603380-vm2k30nm63srcfiajuvdi5a81igeapdj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

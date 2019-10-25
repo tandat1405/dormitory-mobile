@@ -35,7 +35,7 @@ public class CreateIssueActivity extends AppCompatActivity {
         spn_IssueType = findViewById(R.id.spn_issue_type);
         spn_EquipmentType = findViewById(R.id.spn_equipment_type);
         //spinner
-        ArrayAdapter spnIssueAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,spnArrRequestType);
+        ArrayAdapter spnIssueAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,spnArrRequestType);
         spn_IssueType.setAdapter(spnIssueAdapter);
         spn_IssueType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -55,7 +55,7 @@ public class CreateIssueActivity extends AppCompatActivity {
 
             }
         });
-        ArrayAdapter spnEquipmentAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,spnArrEquipmentType);
+        ArrayAdapter spnEquipmentAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,spnArrEquipmentType);
         spn_EquipmentType.setAdapter(spnEquipmentAdapter);
     }
     @Override
