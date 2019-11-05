@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="@drawable/bg_input">
+    <TextView
+        android:textColor="@color/black"
+        android:fontFamily="@font/be_vietnam_bold"
+        android:padding="5dp"
+        android:gravity="center"
+        android:text="Loại phòng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <View
+        android:background="@color/gray_btn_bg_color"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+        <LinearLayout
+            android:padding="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/black"
+                android:text="Phòng tiêu chuẩn:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Số lượng người: 8 người/ 1 phòng."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Trang thiết bị:\n8 giường\n8 bàn\n8 tủ quần áo\n4 quạt\n1 wifi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Phí: 350.000 VNĐ/ tháng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:text="Phòng dịch vụ:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Số lượng người: 4 người/ 1 phòng."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Trang thiết bị:\n4 giường\n4 bàn\n4 tủ quần áo\n1 máy lạnh\n1 tủ lạnh\n1 wifi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Phí: 1.000.000 VNĐ/ tháng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:id="@+id/btn_room_type_OK"
+            android:textColor="@color/white"
+            android:text="OK"
+            android:background="@drawable/bg_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

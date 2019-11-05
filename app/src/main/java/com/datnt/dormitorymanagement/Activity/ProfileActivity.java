@@ -79,7 +79,7 @@ public class ProfileActivity extends AppCompatActivity {
                     tv_Name.setText(profile.getName());
                     tv_Address.setText(profile.getAddress());
                     tv_Email.setText(profile.getEmail());
-                    tv_TrainingPoint.setText("Điểm :" + profile.getEvaluationScore());
+                    tv_TrainingPoint.setText("Điểm: " + profile.getEvaluationScore());
                     if(profile.getGender() == true){
                         tv_Gender.setText("Nam");
                     }

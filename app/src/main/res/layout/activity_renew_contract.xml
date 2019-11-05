@@ -7,11 +7,12 @@
     android:padding="10dp"
     tools:context=".Activity.RenewContractActivity">
     <LinearLayout
+        android:layout_above="@+id/btn_renew"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <!--<RelativeLayout
             android:padding="5dp"
             android:background="@drawable/bg_input"
             android:layout_width="match_parent"
@@ -31,6 +32,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"/>
         </RelativeLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,28 +44,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="A13 (phòng tiêu chuẩn)"/>
+        -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Số tháng muốn gia hạn:"/>
         <RadioGroup
+            android:id="@+id/rg_renew_month"
             android:padding="5dp"
             android:background="@drawable/bg_input"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RadioButton
+                android:id="@+id/rb_renew_4"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 android:text="4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <RadioButton
+                android:id="@+id/rb_renew_8"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_marginLeft="20dp"
                 android:text="8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <RadioButton
+                android:id="@+id/rb_renew_12"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_marginLeft="20dp"
                 android:text="12"
@@ -76,6 +83,8 @@
 
     </LinearLayout>
     <Button
+        android:onClick="clickToRenewContract"
+        android:id="@+id/btn_renew"
         android:fontFamily="@font/be_vietnam_bold"
         android:textColor="#ffffff"
         android:text="Gửi yêu cầu"

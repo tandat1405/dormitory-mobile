@@ -2,4 +2,5 @@
     <string name="app_name">Dormitory</string>
     <string name="err_lost_internet">Có lỗi xãy ra, xin vui lòng kiểm tra kết nối mạng.</string>
     <string name="err_try_again">Có lỗi xãy ra, xin vui lòng thử lại.</string>
+    <string name="err_can_not_upload_image_to_firebase">Không thể tải ảnh lên hệ thống. Xin vui lòng thử lại hoặc kiểm tra đường truyền.</string>
 </resources>

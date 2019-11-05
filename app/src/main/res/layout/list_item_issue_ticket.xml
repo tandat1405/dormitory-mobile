@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_input"
+    android:weightSum="10"
+    android:padding="10dp">
+    <ImageView
+        android:id="@+id/iv_list_item_issue_image"
+        android:src="@drawable/maintenance"
+        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="70dp"/>
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/black"
+            android:text="Tên sinh viên: Nguyễn Tấn Đạt"
+            android:id="@+id/tv_list_item_issue_owner_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="@color/black"
+            android:text="Phòng: A123"
+            android:id="@+id/tv_list_item_issue_room_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="@color/black"
+            android:text="Loại yêu cầu: Trang thiết bị"
+            android:id="@+id/tv_list_item_issue_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

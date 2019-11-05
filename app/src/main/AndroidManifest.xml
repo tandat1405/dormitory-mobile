@@ -11,8 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
+        android:windowSoftInputMode="stateHidden"
         tools:replace="android:label,android:theme,android:icon">
-        <activity android:name=".Activity.RequestHistoryActivity"></activity>
+        <activity android:name=".Activity.HandleIssueTicketDetailActivity"></activity>
+        <activity android:name=".Activity.HandleIssueTicketActivity" />
+        <activity android:name=".Activity.HomeForStaffActivity" />
+        <activity
+            android:name=".Activity.CaptureAcitivty"
+            android:screenOrientation="landscape" />
+        <activity android:name=".Activity.EditBookingRequestActivity" />
+        <activity android:name=".Activity.IssueHistoryAcitivity" />
+        <activity android:name=".Activity.RequestHistoryActivity" />
         <activity android:name=".Activity.NewsDetailActivity" />
         <activity android:name=".Activity.SubmitMonthlyFeeActivity" />
         <activity android:name=".Activity.NotificationActivity" />

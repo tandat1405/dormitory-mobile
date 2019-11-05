@@ -30,6 +30,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -56,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        //
 
         signInButton = findViewById(R.id.sign_in_button);
         signInButton.setOnClickListener(new View.OnClickListener() {
@@ -85,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                 handleSignInResult(task);
-            } else {
-                Toast.makeText(this, R.string.err_lost_internet, Toast.LENGTH_SHORT).show();
             }
             // The Task returned from this call is always completed, no need to attach
             // a listener.
@@ -119,12 +124,12 @@ public class MainActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         if (response.body().getStatus().equals("Active")) {
                             if (response.body().getRole().equals("Staff")) {
-                                Toast.makeText(MainActivity.this, "Hello " + displayName, Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(MainActivity.this, "Hello " + displayName, Toast.LENGTH_SHORT).show();
 
                                 //store token and user id
                                 mySharedPreference.putStringSharedPreference(MySharedPreference.accessToken, response.body().getAccessToken());
                                 mySharedPreference.putIntSharedPreference(MySharedPreference.userId, response.body().getId());
-                                startActivity(new Intent(MainActivity.this, SubmitMonthlyFeeActivity.class));
+                                startActivity(new Intent(MainActivity.this, HomeForStaffActivity.class));
                             } else if (response.body().getRole().equals("Admin")) {
                                 MyDialog myDialog = new MyDialog();
                                 myDialog.createErrorDialog(MainActivity.this, "Admin không được phép sử dụng ứng dụng này, xin vui lòng sử dụng web application.");
@@ -142,10 +147,13 @@ public class MainActivity extends AppCompatActivity {
                             myLoadingDialog.dismissLoading();
 
                         } else {
+                            signOut();
                             myLoadingDialog.dismissLoading();
-                            Toast.makeText(MainActivity.this, "Tài khoản của bạn đã bị vô hiệu hóa. Xin liên hệ ban quản lý Ký Túc Xá.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Tài khoản của bạn không có quyền truy cập ứng dụng này. Xin vui lòng liên hệ ban quản lí ký túc xá để biết thêm thông tin chi tiết.", Toast.LENGTH_SHORT).show();
                         }
                     } else {
+                        signOut();
+                        myLoadingDialog.dismissLoading();
                         Toast.makeText(MainActivity.this, R.string.err_try_again, Toast.LENGTH_SHORT).show();
                     }
                 }

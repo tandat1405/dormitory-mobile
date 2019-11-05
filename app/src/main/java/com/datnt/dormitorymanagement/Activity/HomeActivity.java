@@ -15,6 +15,7 @@ import com.datnt.dormitorymanagement.Adapter.GridHomeAdapter;
 import com.datnt.dormitorymanagement.Api.ApiUtil;
 import com.datnt.dormitorymanagement.Api.StudentClient;
 import com.datnt.dormitorymanagement.ApiResultModel.ProfileResult;
+import com.datnt.dormitorymanagement.ApiResultModel.StudentStatusResult;
 import com.datnt.dormitorymanagement.GoogleClient.GoogleClient;
 import com.datnt.dormitorymanagement.InAppModel.Home;
 import com.datnt.dormitorymanagement.R;
@@ -36,8 +37,12 @@ public class HomeActivity extends AppCompatActivity {
     private TextView tv_Name;
     private boolean isHadRoom = false;
     private boolean isUpdatedProfile = false;
-    private static int RC_UP = 101;
+    private static int RC_BR = 101;
     private SweetAlertDialog updateProfileDialog;
+    private String token;
+    private int userId;
+    private StudentClient studentClient;
+    private StudentStatusResult studentStatusResult;
 
     private GridView gridView;
 
@@ -58,16 +63,44 @@ public class HomeActivity extends AppCompatActivity {
         //declare
         mySharedPreference = new MySharedPreference(this);
         myLoadingDialog = new MyLoadingDialog(this);
+        token = mySharedPreference.getStringSharedPreference(MySharedPreference.accessToken);
+        userId = mySharedPreference.getIntSharedPreference(MySharedPreference.userId);
         tv_Name = findViewById(R.id.tv_home_name);
-        //gridView = findViewById(R.id.grid_home);
-        //
-        //createHomeData();
+        studentClient = ApiUtil.studentClient(token);
+        studentStatusResult = new StudentStatusResult();
         //getProfile
-        if (isUpdatedProfile = false) {
-            showDialog("Bạn có muốn cập nhật thông tin cá nhân để sử dụng đầy đủ chức năng của phần mềm này không?");
-        }
+        //if (isUpdatedProfile = false) {
+        //    showDialog("Bạn có muốn cập nhật thông tin cá nhân để sử dụng đầy đủ chức năng của phần mềm này không?");
+        //}
+        //get student profile
         getProfile();
 
+
+
+    }
+
+    private void getStatus() {
+        Call<StudentStatusResult> call = studentClient.getStudentStatus(userId);
+        call.enqueue(new Callback<StudentStatusResult>() {
+            @Override
+            public void onResponse(Call<StudentStatusResult> call, Response<StudentStatusResult> response) {
+                if (response.isSuccessful()) {
+                    studentStatusResult = response.body();
+                    myLoadingDialog.dismissLoading();
+                } else {
+                    myLoadingDialog.dismissLoading();
+                    Toast.makeText(HomeActivity.this, "Có lỗi xảy ra xin vui lòng đăng nhập lại.", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StudentStatusResult> call, Throwable t) {
+                myLoadingDialog.dismissLoading();
+                Toast.makeText(HomeActivity.this, R.string.err_lost_internet, Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
     }
 
     private void showDialog(String content) {
@@ -81,7 +114,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(SweetAlertDialog sweetAlertDialog) {
                 sweetAlertDialog.dismiss();
-                startActivityForResult(new Intent(HomeActivity.this, UpdateProfileActivity.class), RC_UP);
+                //startActivityForResult(new Intent(HomeActivity.this, UpdateProfileActivity.class), RC_UP);
             }
         });
         updateProfileDialog.setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -95,10 +128,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private void getProfile() {
         myLoadingDialog.showLoading();
-        String token = mySharedPreference.getStringSharedPreference(MySharedPreference.accessToken);
-        int id = mySharedPreference.getIntSharedPreference(MySharedPreference.userId);
-        StudentClient studentClient = ApiUtil.studentClient(token);
-        Call<ProfileResult> call = studentClient.getProfile(id);
+
+        Call<ProfileResult> call = studentClient.getProfile(userId);
         call.enqueue(new Callback<ProfileResult>() {
             @Override
             public void onResponse(Call<ProfileResult> call, Response<ProfileResult> response) {
@@ -115,13 +146,13 @@ public class HomeActivity extends AppCompatActivity {
                     } else {
                         isHadRoom = true;
                     }
-                    myLoadingDialog.dismissLoading();
+                    //Get Student Status
+                    getStatus();
+                    //myLoadingDialog.dismissLoading();
                 } else {
-                    myLoadingDialog.dismissLoading();
-                    Intent intent = getIntent();
-                    tv_Name.setText(intent.getStringExtra("mailName"));
-                    isHadRoom = false;
-                    //Toast.makeText(HomeActivity.this, "Không thể tải thông tin.", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(HomeActivity.this, "Có lỗi xảy ra, xin vui lòng đăng nhập lại.", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
 
@@ -129,6 +160,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onFailure(Call<ProfileResult> call, Throwable t) {
                 myLoadingDialog.dismissLoading();
                 Toast.makeText(HomeActivity.this, R.string.err_lost_internet, Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
@@ -147,7 +179,7 @@ public class HomeActivity extends AppCompatActivity {
                         GoogleClient googleClient = new GoogleClient();
                         googleClient.signOut(HomeActivity.this);
                         finish();
-                        startActivity(new Intent(HomeActivity.this, MainActivity.class));
+                        HomeActivity.super.onBackPressed();
                     }
                 })
                 .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -165,12 +197,47 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void clickToBookRoom(View view) {
-            startActivity(new Intent(this, BookRoomActivity.class));
+        if(studentStatusResult.getIsHaveRoom()){
+            new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText("Oops...")
+                    .setContentText("Bạn không sử dụng được chức năng này vì bạn đã có phòng!")
+                    .show();
+            //Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (studentStatusResult.getIsHaveRequestBooking()){
+            new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("Bạn đã đăng kí phòng")
+                    .setContentText("Bạn có muốn xem lại lịch sử đăng kí?")
+                    .setCancelText("Không")
+                    .setConfirmText("Có")
+                    .showCancelButton(true)
+                    .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            sweetAlertDialog.cancel();
+                        }
+                    })
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            sweetAlertDialog.cancel();
+                            //TODO: start History Activity
+                        }
+                    })
+                    .show();
+            //Toast.makeText(this, "Bạn đã đăng kí phòng, hãy xem lại lịch sử đăng kí.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Intent intent = new Intent(this, BookRoomActivity.class);
+        intent.putExtra("state","create");
+        startActivityForResult(intent, RC_BR);
 
     }
 
     public void clickToTransferRoom(View view) {
-        if (isHadRoom == false) {
+        if (studentStatusResult.getIsHaveRoom() == false) {
             Toast.makeText(this, "Bạn chưa có phòng. Hãy đăng kí phòng.", Toast.LENGTH_SHORT).show();
         } else {
             startActivity(new Intent(this, TransferRoomActivity.class));
@@ -179,7 +246,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void clickToRenewContract(View view) {
-        if (isHadRoom == false) {
+        if (studentStatusResult.getIsHaveRoom() == false) {
             Toast.makeText(this, "Bạn chưa có phòng. Hãy đăng kí phòng.", Toast.LENGTH_SHORT).show();
         } else {
             startActivity(new Intent(this, RenewContractActivity.class));
@@ -188,7 +255,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void clickToCancelContract(View view) {
-        if (isHadRoom == false) {
+        if (studentStatusResult.getIsHaveRoom() == false) {
             Toast.makeText(this, "Bạn chưa có phòng. Hãy đăng kí phòng.", Toast.LENGTH_SHORT).show();
         } else {
             startActivity(new Intent(this, CancelContractActivity.class));
@@ -197,7 +264,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void clickToCreateIssue(View view) {
-        if (isHadRoom == false) {
+        if (studentStatusResult.getIsHaveRoom() == false) {
             Toast.makeText(this, "Bạn chưa có phòng. Hãy đăng kí phòng.", Toast.LENGTH_SHORT).show();
         } else {
             startActivity(new Intent(this, CreateIssueActivity.class));
@@ -206,11 +273,14 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void clickToViewNews(View view) {
-        startActivity(new Intent(this, NewsActivity.class));
+        //startActivity(new Intent(this, NewsActivity.class));
+        Intent intent = new Intent(this, BookRoomActivity.class);
+        intent.putExtra("state","edit");
+        startActivity(intent);
     }
 
     public void clickToPayment(View view) {
-        if (isHadRoom == false) {
+        if (studentStatusResult.getIsHaveRoom() == false) {
             Toast.makeText(this, "Bạn chưa có phòng. Hãy đăng kí phòng.", Toast.LENGTH_SHORT).show();
         } else {
             startActivity(new Intent(this, PaymentActivity.class));
@@ -225,10 +295,10 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_UP) {
+        if (requestCode == RC_BR) {
             if (resultCode == Activity.RESULT_OK) {
-                getProfile();
-                updateProfileDialog.dismiss();
+                getStatus();
+                //updateProfileDialog.dismiss();
             }
         }
     }
